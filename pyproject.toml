@@ -1,0 +1,150 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bca2p"
+version = "0.1.0"
+description = "Bio-inspired causal agent-to-agent communication SDK for Python."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.13,<3.15"
+authors = [
+  { name = "Rahul Vishwakarma" },
+]
+keywords = [
+  "agents",
+  "a2a",
+  "bio-inspired",
+  "causal-inference",
+  "langchain",
+  "langgraph",
+  "multi-agent",
+  "python",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "anyio>=4.8,<5",
+  "httpx>=0.28,<1",
+  "pydantic>=2.11,<3",
+  "typing-extensions>=4.12; python_version < '3.14'",
+]
+
+[project.optional-dependencies]
+langgraph = [
+  "langgraph>=0.3,<1",
+]
+langchain = [
+  "langchain>=1,<2",
+]
+marl = [
+  "numpy>=2,<3",
+  "torch>=2.7,<3",
+]
+sim = [
+  "networkx>=3.4,<4",
+  "numpy>=2,<3",
+]
+distributed = [
+  "fastapi>=0.115,<1",
+  "sse-starlette>=2.1,<3",
+  "uvicorn>=0.34,<1",
+]
+dev = [
+  "build>=1.2,<2",
+  "coverage[toml]>=7.8,<8",
+  "pre-commit>=4.2,<5",
+  "pyright>=1.1.400,<2",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=1.0,<2",
+  "ruff>=0.11.10,<1",
+  "twine>=6.1,<7",
+]
+experimental = [
+  "numpy>=2,<3",
+  "torch>=2.7,<3",
+  "networkx>=3.4,<4",
+  "fastapi>=0.115,<1",
+  "sse-starlette>=2.1,<3",
+  "uvicorn>=0.34,<1",
+]
+all = [
+  "langgraph>=0.3,<1",
+  "langchain>=1,<2",
+  "numpy>=2,<3",
+  "torch>=2.7,<3",
+  "networkx>=3.4,<4",
+  "fastapi>=0.115,<1",
+  "sse-starlette>=2.1,<3",
+  "uvicorn>=0.34,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/rahvis/bioAgent"
+Documentation = "https://github.com/rahvis/bioAgent/tree/main/docs"
+Repository = "https://github.com/rahvis/bioAgent"
+Issues = "https://github.com/rahvis/bioAgent/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bca2p"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests", "examples"]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "UP",
+  "B",
+  "SIM",
+]
+ignore = [
+  "B008",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pyright]
+pythonVersion = "3.13"
+venvPath = "."
+include = ["src", "tests", "examples"]
+typeCheckingMode = "basic"
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnusedImport = true
+reportUnusedVariable = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+  "--cov=src/bca2p",
+  "--cov-report=term-missing",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src/bca2p"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
