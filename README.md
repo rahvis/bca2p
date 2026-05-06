@@ -69,12 +69,3 @@ ruff format --check .
 pyright
 pytest
 ```
-
-## Repository Documents
-
-- Product definition: [prd.md](./prd.md)
-- Implementation plan: [agent.md](./agent.md)
-- Architecture docs: [docs/architecture/README.md](./docs/architecture/README.md)
-- API docs index: [docs/api/README.md](./docs/api/README.md)
-- Guides index: [docs/guides/README.md](./docs/guides/README.md)
-- Changelog: [CHANGELOG.md](./CHANGELOG.md)
