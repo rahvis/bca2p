@@ -24,6 +24,15 @@ env/
 .vscode/
 
 # Local runtime state
+.env
+.env.*
+!.env.example
 .bca2p/
 tmp/
 logs/
+
+/Users/rahulvishwakarma/Documents/GitHub/bca2p/leaderboard.md
+/Users/rahulvishwakarma/Documents/GitHub/bca2p/datasets.md
+/Users/rahulvishwakarma/Documents/GitHub/bca2p/benchmark_spec.md
+/Users/rahulvishwakarma/Documents/GitHub/bca2p/plan.md
+
